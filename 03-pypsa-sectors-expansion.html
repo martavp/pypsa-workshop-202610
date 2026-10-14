@@ -67,7 +67,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="New features: Stochastic Optimization in PyPSA" href="pypsa-stochastic.html" />
+    <link rel="next" title="Annex: Intro to the basics of Python" href="annex-python.html" />
     <link rel="prev" title="More pypsa features: more complex dispatch problems" href="02-pypsa-more-features.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -227,9 +227,6 @@
 <li class="toctree-l1"><a class="reference internal" href="01-pypsa-intro.html">Introduction to <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> and <code class="docutils literal notranslate"><span class="pre">linopy</span></code>: a simple dispatch problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-pypsa-more-features.html">More <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> features: more complex dispatch problems</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced models in <code class="docutils literal notranslate"><span class="pre">pypsa</span></code>: capacity expansion planning with sector coupling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypsa-stochastic.html">(Coming soon) Stochastic optimization with PyPSA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config-small-system.html">config-small-system.yaml</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config-big-system.html">config-big-system.yaml</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-python.html">Annex: Intro to the basics of <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-pandas.html">Annex: Tabular data analysis with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
@@ -1087,7 +1084,7 @@ and/or output (i.e. <code class="docutils literal notranslate"><span class="pre"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2508/2714205412.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2510/2714205412.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['electricity', 'hydrogen'], dtype='object', name='name')
@@ -1114,7 +1111,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/11 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 219.18it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 207.85it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1123,7 +1120,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 410.80it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 417.84it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
@@ -1131,7 +1128,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-zuv8032h has 37237 rows; 17527 cols; 71227 nonzeros
+LP linopy-problem-vvcd941l has 37237 rows; 17527 cols; 71227 nonzeros
 Coefficient ranges:
   Matrix  [1e-04, 4e+00]
   Cost    [5e-02, 2e+05]
@@ -1155,7 +1152,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37237 duals
 Objective: 5.73e+10
 Solver: highs
-Runtime: 4.00s
+Runtime: 3.80s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -1165,17 +1162,17 @@ Solver message: Optimal
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-ext-p-lower, Generator-ext-p-upper, Link-ext-p-lower, Link-ext-p-upper, Store-ext-e-lower, Store-ext-e-upper, Store-energy_balance were not assigned to the network.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      15745     5.7292514804e+10 Pr: 0(0); Du: 0(1.68342e-10) 4.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      15745     5.7292514804e+10 Pr: 0(0); Du: 0(1.68342e-10) 3.8s
 
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-zuv8032h
+Model name          : linopy-problem-vvcd941l
 Model status        : Optimal
 Simplex   iterations: 15745
 Objective value     :  5.7292514804e+10
 P-D objective error :  1.7511281959e-14
-HiGHS run time      :          4.00
+HiGHS run time      :          3.80
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
@@ -1843,7 +1840,7 @@ dtype: float64
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2508/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2510/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['electricity', 'hydrogen'], dtype='object', name='name')
@@ -1874,7 +1871,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 207.90it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 204.52it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1883,15 +1880,15 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 407.73it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 407.37it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.08s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-xkuntx5r has 37238 rows; 17527 cols; 73417 nonzeros
+LP linopy-problem-3y7pd373 has 37238 rows; 17527 cols; 73417 nonzeros
 Coefficient ranges:
   Matrix  [1e-04, 4e+00]
   Cost    [5e-02, 2e+05]
@@ -1915,7 +1912,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37238 duals
 Objective: 8.73e+10
 Solver: highs
-Runtime: 3.75s
+Runtime: 3.46s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -1925,17 +1922,17 @@ Solver message: Optimal
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-ext-p-lower, Generator-ext-p-upper, Link-ext-p-lower, Link-ext-p-upper, Store-ext-e-lower, Store-ext-e-upper, Store-energy_balance were not assigned to the network.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      11262     8.7256396136e+10 Pr: 0(0) 3.7s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      11262     8.7256396136e+10 Pr: 0(0) 3.4s
 
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-xkuntx5r
+Model name          : linopy-problem-3y7pd373
 Model status        : Optimal
 Simplex   iterations: 11262
 Objective value     :  8.7256396136e+10
 P-D objective error :  2.7542499848e-14
-HiGHS run time      :          3.75
+HiGHS run time      :          3.46
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
@@ -2076,11 +2073,11 @@ dtype: float64
       </div>
     </a>
     <a class="right-next"
-       href="pypsa-stochastic.html"
+       href="annex-python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">New features: Stochastic Optimization in PyPSA</p>
+        <p class="prev-next-title">Annex: Intro to the basics of <code class="docutils literal notranslate"><span class="pre">Python</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
