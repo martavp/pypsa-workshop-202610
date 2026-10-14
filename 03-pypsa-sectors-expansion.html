@@ -1087,7 +1087,7 @@ and/or output (i.e. <code class="docutils literal notranslate"><span class="pre"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2233/2714205412.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2426/2714205412.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['electricity', 'hydrogen'], dtype='object', name='name')
@@ -1114,7 +1114,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/11 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 334.95it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 201.98it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1123,15 +1123,15 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 674.16it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 398.01it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.06s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.1s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-c70ib0xx has 37237 rows; 17527 cols; 71227 nonzeros
+LP linopy-problem-kouvjblg has 37237 rows; 17527 cols; 71227 nonzeros
 Coefficient ranges:
   Matrix  [1e-04, 4e+00]
   Cost    [5e-02, 2e+05]
@@ -1146,7 +1146,7 @@ Presolve reductions: rows 18660(-18577); columns 14287(-3240); nonzeros 49410(-2
 Solving the presolved LP
 Using dual simplex solver
   Iteration        Objective     Infeasibilities num(sum)
-          0     0.0000000000e+00 Pr: 4380(2.2585e+08) 0.0s
+          0     0.0000000000e+00 Pr: 4380(2.2585e+08) 0.1s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1155,7 +1155,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37237 duals
 Objective: 5.73e+10
 Solver: highs
-Runtime: 1.86s
+Runtime: 3.82s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -1165,17 +1165,17 @@ Solver message: Optimal
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-ext-p-lower, Generator-ext-p-upper, Link-ext-p-lower, Link-ext-p-upper, Store-ext-e-lower, Store-ext-e-upper, Store-energy_balance were not assigned to the network.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      15745     5.7292514804e+10 Pr: 0(0); Du: 0(1.68342e-10) 1.8s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      15745     5.7292514804e+10 Pr: 0(0); Du: 0(1.68342e-10) 3.8s
 
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-c70ib0xx
+Model name          : linopy-problem-kouvjblg
 Model status        : Optimal
 Simplex   iterations: 15745
 Objective value     :  5.7292514804e+10
 P-D objective error :  1.7511281959e-14
-HiGHS run time      :          1.86
+HiGHS run time      :          3.82
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
@@ -1843,7 +1843,7 @@ dtype: float64
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2233/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2426/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['electricity', 'hydrogen'], dtype='object', name='name')
@@ -1874,7 +1874,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 330.87it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 199.62it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1883,15 +1883,15 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 667.31it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 397.23it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.05s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-klkqe_ip has 37238 rows; 17527 cols; 73417 nonzeros
+LP linopy-problem-x3wayxqa has 37238 rows; 17527 cols; 73417 nonzeros
 Coefficient ranges:
   Matrix  [1e-04, 4e+00]
   Cost    [5e-02, 2e+05]
@@ -1906,7 +1906,7 @@ Presolve reductions: rows 16470(-20768); columns 12096(-5431); nonzeros 42840(-3
 Solving the presolved LP
 Using dual simplex solver
   Iteration        Objective     Infeasibilities num(sum)
-          0     0.0000000000e+00 Pr: 4380(2.2585e+08) 0.0s
+          0     0.0000000000e+00 Pr: 4380(2.2585e+08) 0.1s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1915,7 +1915,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37238 duals
 Objective: 8.73e+10
 Solver: highs
-Runtime: 1.67s
+Runtime: 3.49s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -1925,17 +1925,17 @@ Solver message: Optimal
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-ext-p-lower, Generator-ext-p-upper, Link-ext-p-lower, Link-ext-p-upper, Store-ext-e-lower, Store-ext-e-upper, Store-energy_balance were not assigned to the network.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      11262     8.7256396136e+10 Pr: 0(0) 1.6s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      11262     8.7256396136e+10 Pr: 0(0) 3.4s
 
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-klkqe_ip
+Model name          : linopy-problem-x3wayxqa
 Model status        : Optimal
 Simplex   iterations: 11262
 Objective value     :  8.7256396136e+10
 P-D objective error :  2.7542499848e-14
-HiGHS run time      :          1.67
+HiGHS run time      :          3.49
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
