@@ -1,0 +1,107 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+n.model.add_constraints(
+    n.model["Generator-p"].sum(dim="Generator") == n.loads.p_set["Small town"],
+    name="nodal_balance",
+)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyError[39m                                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[23][39m[32m, line 2[39m
+[32m      1[39m n.model.add_constraints(
+[32m----> [39m[32m2[39m     n.model[[33m"Generator-p"[39m].sum(dim=[33m"Generator"[39m) == n.loads.p_set[[33m"Small town"[39m],
+[32m      3[39m     name=[33m"nodal_balance"[39m,
+[32m      4[39m )
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/variables.py:1291[39m, in [36mVariable.sum[39m[34m(self, dim, **kwargs)[39m
+[32m   1288[39m [38;5;28;01mif[39;00m kwargs:
+[32m   1289[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[33mUnknown keyword argument(s): [39m[38;5;132;01m{[39;00mkwargs[38;5;132;01m}[39;00m[33m"[39m)
+[32m-> [39m[32m1291[39m [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43mto_linexpr[39;49m[30;43m([39;49m[30;43m_warn_absence[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m)[39;49m[30;43m.[39;49m[30;43msum[39;49m[30;43m([39;49m[30;43mdim[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:2758[39m, in [36mLinearExpression.sum[39m[34m(self, dim, drop_zeros, **kwargs)[39m
+[32m   2756[39m csr = [38;5;28mself[39m._csr
+[32m   2757[39m [38;5;28;01mif[39;00m csr [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m kwargs:
+[32m-> [39m[32m2758[39m     [38;5;28;01mreturn[39;00m [30;43msuper[39;49m[30;43m([39;49m[30;43m)[39;49m[30;43m.[39;49m[30;43msum[39;49m[30;43m([39;49m[30;43mdim[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdrop_zeros[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   2759[39m [38;5;28;01mif[39;00m dim [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m [38;5;28misinstance[39m(dim, EllipsisType):
+[32m   2760[39m     dims: [38;5;28mlist[39m[Hashable] = [38;5;28mlist[39m(csr.grid.dims)
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:1836[39m, in [36mBaseExpression.sum[39m[34m(self, dim, drop_zeros, **kwargs)[39m
+[32m   1833[39m [38;5;28;01mif[39;00m kwargs:
+[32m   1834[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[33mUnknown keyword argument(s): [39m[38;5;132;01m{[39;00mkwargs[38;5;132;01m}[39;00m[33m"[39m)
+[32m-> [39m[32m1836[39m res = [38;5;28mself[39m.[34m__class__[39m([30;43mself[39;49m[30;43m.[39;49m[30;43m_sum[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdim[39;49m[30;43m=[39;49m[30;43mdim[39;49m[30;43m)[39;49m, [38;5;28mself[39m.model)
+[32m   1838[39m [38;5;28;01mif[39;00m drop_zeros:
+[32m   1839[39m     res = res.densify_terms()
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:2377[39m, in [36mBaseExpression._sum[39m[34m(cls, expr, dim)[39m
+[32m   2373[39m     dim = [d [38;5;28;01mfor[39;00m d [38;5;129;01min[39;00m dim [38;5;28;01mif[39;00m d != TERM_DIM]
+[32m   2374[39m     ds = _drop_coords_on_dims(data[[[33m"[39m[33mcoeffs[39m[33m"[39m, [33m"[39m[33mvars[39m[33m"[39m]], dim).rename(
+[32m   2375[39m         {TERM_DIM: STACKED_TERM_DIM}
+[32m   2376[39m     )
+[32m-> [39m[32m2377[39m     ds = [30;43m_stack_into_term_dim[39;49m[30;43m([39;49m[30;43mds[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m[[39;49m[30;43mSTACKED_TERM_DIM[39;49m[30;43m][39;49m[30;43m [39;49m[30;43m+[39;49m[30;43m [39;49m[30;43mdim[39;49m[30;43m)[39;49m
+[32m   2378[39m     ds = assign_multiindex_safe(ds, const=data.const.sum(dim))
+[32m   2380[39m [38;5;28;01mreturn[39;00m ds
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:202[39m, in [36m_stack_into_term_dim[39m[34m(ds, dims)[39m
+[32m    194[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m    195[39m [33;03mStack ``dims`` into the term dimension.[39;00m
+[32m    196[39m 
+[32m   (...)[39m[32m    199[39m [33;03mso an empty dataset is stacked onto a term dimension of size 0 instead.[39;00m
+[32m    200[39m [33;03m"""[39;00m
+[32m    201[39m [38;5;28;01mif[39;00m ds.vars.size:
+[32m--> [39m[32m202[39m     [38;5;28;01mreturn[39;00m [30;43mds[39;49m[30;43m.[39;49m[30;43mstack[39;49m[30;43m([39;49m[30;43m{[39;49m[30;43mTERM_DIM[39;49m[30;43m:[39;49m[30;43m [39;49m[30;43mdims[39;49m[30;43m}[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mcreate_index[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m)[39;49m
+[32m    204[39m [38;5;28;01mfor[39;00m name, da [38;5;129;01min[39;00m ds.data_vars.items():
+[32m    205[39m     kept = [d [38;5;28;01mfor[39;00m d [38;5;129;01min[39;00m da.dims [38;5;28;01mif[39;00m d [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m dims]
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/util/deprecation_helpers.py:144[39m, in [36mdeprecate_dims.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    136[39m     emit_user_level_warning(
+[32m    137[39m         [33mf[39m[33m"[39m[33mThe `[39m[38;5;132;01m{[39;00mold_name[38;5;132;01m}[39;00m[33m` argument has been renamed to `dim`, and will be removed [39m[33m"[39m
+[32m    138[39m         [33m"[39m[33min the future. This renaming is taking place throughout xarray over the [39m[33m"[39m
+[32m   (...)[39m[32m    141[39m         [38;5;167;01mPendingDeprecationWarning[39;00m,
+[32m    142[39m     )
+[32m    143[39m     kwargs[[33m"[39m[33mdim[39m[33m"[39m] = kwargs.pop(old_name)
+[32m--> [39m[32m144[39m [38;5;28;01mreturn[39;00m [30;43mfunc[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/dataset.py:5383[39m, in [36mDataset.stack[39m[34m(self, dim, create_index, index_cls, **dim_kwargs)[39m
+[32m   5379[39m         """
+[32m   5380[39m         dim = either_dict_or_kwargs(dim, dim_kwargs, [33m"stack"[39m)
+[32m   5381[39m         result = self
+[32m   5382[39m         [38;5;28;01mfor[39;00m new_dim, dims [38;5;28;01min[39;00m dim.items():
+[32m-> [39m[32m5383[39m             result = result._stack_once(dims, new_dim, index_cls, create_index)
+[32m   5384[39m         [38;5;28;01mreturn[39;00m result
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/dataset.py:5296[39m, in [36mDataset._stack_once[39m[34m(self, dims, new_dim, index_cls, create_index)[39m
+[32m   5292[39m         [38;5;28;01mfor[39;00m name, var [38;5;28;01min[39;00m self.variables.items():
+[32m   5293[39m             [38;5;28;01mif[39;00m any(d [38;5;28;01min[39;00m var.dims [38;5;28;01mfor[39;00m d [38;5;28;01min[39;00m dims):
+[32m   5294[39m                 add_dims = [d [38;5;28;01mfor[39;00m d [38;5;28;01min[39;00m dims [38;5;28;01mif[39;00m d [38;5;28;01mnot[39;00m [38;5;28;01min[39;00m var.dims]
+[32m   5295[39m                 vdims = list(var.dims) + add_dims
+[32m-> [39m[32m5296[39m                 shape = [self.sizes[d] [38;5;28;01mfor[39;00m d [38;5;28;01min[39;00m vdims]
+[32m   5297[39m                 exp_var = var.set_dims(vdims, shape)
+[32m   5298[39m                 stacked_var = exp_var.stack({new_dim: dims})
+[32m   5299[39m                 new_variables[name] = stacked_var
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/utils.py:506[39m, in [36mFrozen.__getitem__[39m[34m(self, key)[39m
+[32m    505[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__getitem__[39m([38;5;28mself[39m, key: K) -> V:
+[32m--> [39m[32m506[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43mmapping[39;49m[30;43m[[39;49m[30;43mkey[39;49m[30;43m][39;49m
+
+[31mKeyError[39m: 'Generator'
+
