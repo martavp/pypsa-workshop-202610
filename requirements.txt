@@ -14,7 +14,7 @@ openpyxl
 cartopy>=0.22
 matplotlib>=3.6
 plotly
-jupyter-book
+jupyter-book<2
 ghp-import
 highspy>=1.7
 numexpr>2.8.5
