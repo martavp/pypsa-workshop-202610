@@ -29,11 +29,11 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build pypsa-workshop-202506
+        jupyter-book build pypsa-workshop-202610
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: pypsa-workshop-202506/_build/html
+        publish_dir: pypsa-workshop-202610/_build/html
