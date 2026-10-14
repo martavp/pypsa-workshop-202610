@@ -1,5 +1,5 @@
 # Welcome to the workshop!
-*26-27 June 2025, DTU, Denmark*
+*27-28 October 2026, DEA, Denmark*
 
 This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
 
