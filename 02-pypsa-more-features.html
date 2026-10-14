@@ -292,7 +292,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/resilient-project/pypsa-workshop-202506/blob/main/pypsa-workshop-202506/02-pypsa-more-features.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/martavp/pypsa-workshop-202610/blob/main/pypsa-workshop-202506/02-pypsa-more-features.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/resilient-project/pypsa-workshop-202506" target="_blank"
+      <li><a href="https://github.com/martavp/pypsa-workshop-202610" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -340,7 +340,7 @@
       
       
       
-      <li><a href="https://github.com/resilient-project/pypsa-workshop-202506/issues/new?title=Issue%20on%20page%20%2F02-pypsa-more-features.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/martavp/pypsa-workshop-202610/issues/new?title=Issue%20on%20page%20%2F02-pypsa-more-features.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -537,13 +537,13 @@
 <section id="let-s-consider-a-more-general-form-of-an-electricity-dispatch-problem">
 <h2>Let’s consider a more general form of an electricity dispatch problem<a class="headerlink" href="#let-s-consider-a-more-general-form-of-an-electricity-dispatch-problem" title="Link to this heading">#</a></h2>
 <p>For an <em>hourly</em> electricity market dispatch simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d188f1b-7047-4b31-acaf-ac185563e754">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9d188f1b-7047-4b31-acaf-ac185563e754" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b570cb8a-cf94-4c24-a9b2-a90c6f007f39">
+<span class="eqno">(3)<a class="headerlink" href="#equation-b570cb8a-cf94-4c24-a9b2-a90c6f007f39" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_{i,s,t} o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6c5f3cd9-06cd-4b4e-9ab3-f97e6cdd1365">
-<span class="eqno">(4)<a class="headerlink" href="#equation-6c5f3cd9-06cd-4b4e-9ab3-f97e6cdd1365" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0eb13270-d71b-41ab-8001-3997a4c5e92d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-0eb13270-d71b-41ab-8001-3997a4c5e92d" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{nodal energy balance : bus} \\
@@ -1622,7 +1622,7 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
   <div class="footer-item">
     
 <p class="component-author">
-By Marta Victoria, Fabian Neumann, Iegor Riepin
+By Marta Victoria, Aleksander Grochowicz, Parisa Rahdan
 </p>
 
   </div>
@@ -1632,7 +1632,7 @@ By Marta Victoria, Fabian Neumann, Iegor Riepin
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
