@@ -1,17 +1,15 @@
 # Welcome to the workshop!
 *26-27 June 2025, DTU, Denmark*
 
-This repository contains PyPSA(-Eur) materials for a workshop organized for a broad audience of researchers and industry stakeholders interested in energy system modelling.
+This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
 
-The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Lukas Karkossa, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES**. DTU team gratefully acknowledges funding by Danmarks Frie Forskningsfond (DFF) Sapere Aude—EXTREMES project (2067-00009B).
-
-The workshop is co-hosted by the **ENSYS research group at TU Berlin** — Fabian Neumann and Iegor Riepin — with support from the **RESILIENT project**. TUB team gratefully acknowledges funding by the German Federal Ministry for Economic Affairs and Energy (BMWE) under Grant No. 03EI4083A (RESILIENT project**) jointly with the CETPartnership (https://cetpartnership.eu/) through the Joint Call 2022, which supports our modelling workshops and public training events.
+The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** and the **Novo Nordisk Fundation CO2 Research Center (CORC)**. DTU team gratefully acknowledges funding by Danmarks Frie Forskningsfond (DFF) Sapere Aude—EXTREMES project (2067-00009B) and CORC005.
 
 More about our work:
 
 - EXTREMES project: [Designing a sector-coupled European energy system robust to 60 years of historical weather data](https://www.nature.com/articles/s41467-024-54853-3)
 
-- RESILIENT project: [https://resilient-project.github.io/](https://resilient-project.github.io/)
+- CORC project: 
 
 ## Google Colab
 
