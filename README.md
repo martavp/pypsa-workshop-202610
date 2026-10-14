@@ -3,7 +3,7 @@
 
 This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
 
-The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** and the Novo Nordisk Fundation CO2 Research Center (CORC). DTU team gratefully acknowledges funding by Danmarks Frie Forskningsfond (DFF) Sapere Aude—EXTREMES project (2067-00009B) and CORC005. 
+The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** and the **Novo Nordisk Fundation CO2 Research Center (CORC)**. DTU team gratefully acknowledges funding by Danmarks Frie Forskningsfond (DFF) Sapere Aude—EXTREMES project (2067-00009B) and CORC005. 
 
 More about our work:
 
@@ -14,7 +14,7 @@ More about our work:
 
 ## How to use this material?
 
-See instructions in the [workshop intro page](https://github.com/resilient-project/pypsa-workshop-202505/intro.html#).
+See instructions in the [workshop intro page](https://martavp.github.io/pypsa-workshop-202610/intro.html#).
 
 ## Credits
 
