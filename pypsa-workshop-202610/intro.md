@@ -3,7 +3,7 @@
 
 This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
 
-The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** and the **Novo Nordisk Fundation CO2 Research Center (CORC)**. DTU team gratefully acknowledges funding by Danmarks Frie Forskningsfond (DFF) Sapere Aude—EXTREMES project (2067-00009B) and CORC005.
+The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** (2067-00009B) and the **Novo Nordisk Fundation CO2 Research Center (CORC)** (CORC005). 
 
 More about our work:
 
@@ -20,71 +20,44 @@ Open any jupyter notebook and click on the rocket 🚀 in the top right corner. 
 If that does not work download the `.ipynb` file and import it in [Google Colab](https://colab.research.google.com/)
 
 
-## Setting up your Python environment locally
+# Local Installation (optional)
 
-### Anaconda
+You do not need a local installation if you are using Google Colab. For a local setup, first get a copy of the workshop repository by running:
 
-Coordinating the compatibility between different Python software packages and
-their multiple versions can be difficult! Fortunately, the problem is solved by
-using a Python _distribution_ and/or _package manager_.
+```sh
+git clone https://github.com/martavp/pypsa-workshop-202610.git
+```
 
-For instance, you can install on your computer the popular [Anaconda Python
-Distribution](https://www.anaconda.com/download/) or the ligth version `miniconda` described below.
+or by downloading the repository as a ZIP file (look for a green "Code" button
+at https://github.com/martavp/pypsa-workshop-202610) and extracting it to a local
+folder.
 
-For **Linux and MacOS users**, you can access the command line by opening the
-_terminal_ program.
+## Using `pixi`
 
-For **Windows users**, note that many company laptops have restrictions for installing new software. In previous workshops, we have found that installations on Windows are more prone to errors so we strongly recommend using Linux. [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) or an [Ubuntu Virtual Machine](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) are two nice options for using Linux on a Windows machine.
+Install [`pixi`](https://pixi.sh) following its [installation
+instructions](https://pixi.sh/latest/installation/), and verify that it works:
 
-## Managing environments with `conda`
+```sh
+pixi --version
+```
 
-Python coupled with a package manager provides a way to make isolated,
-reproducible _environments_ where you have control over all installed packages
-and configurations. Here is [a great short article](https://medium.com/data-science/conda-essential-concepts-and-tricks-e478ed53b5b) that contains all the essential concepts and tips about using `conda`.
+Then, in the root folder of the workshop repository (where the `pixi.toml` and
+`pixi.lock` files are located), install the environment from the committed lock
+file. This gives everyone the same **pinned** package versions for their
+operating system:
 
-### Tip: use lightweight `miniconda`
+```sh
+pixi install
+```
 
-Instead of `Anaconda`, you use a lightweight installation called
-[`miniconda`](https://docs.conda.io/en/latest/miniconda.html). It is very likely that you don't want the full Anaconda Python Distribution.
+Once this is done, start a Jupyter Lab session in this environment:
 
+```sh
+pixi run jupyter lab
+```
 
-## Environment for this course: `workshop`
+:::{note}
+No activation step is needed. `pixi run` always uses the project environment, so
+it works the same in every new terminal.
+:::
 
-### ... with `conda` (recommended)
-
-The latest environment specification for this course can be downloaded under the following link as a [`YAML`-file](https://en.wikipedia.org/wiki/YAML):
-
-https://github.com/resilient-project/pypsa-workshop-202505/blob/main/environment.yaml
-
-There is a download button at the top-right corner.
-
-After navigating to the folder where the `environment.yaml` file is stored ([here](https://tutorials.codebar.io/command-line/introduction/tutorial.html)'s a tutorial how to navigate with the command line),
-you can reate this environment using `conda`
-
-    conda env create -f environment.yaml
-
-Activate this environment
-
-    conda activate workshop
-
-The environment has to be activated whenever you open a new terminal,
-*before* starting a new Jupyter window with
-
-    jupyter lab
-
-### ... with `pip`
-
-If you want to use `pip` for managing your environment, download
-
-https://github.com/resilient-project/pypsa-workshop-202505/blob/main/requirements.txt
-
-There is a download button at the top-right corner.
-
-After navigating to the folder where the `requirements.txt` file is stored,
-you can install the required packages with
-
-    pip install -r requirements.txt
-
-This should allow you to start a new Jupyter window:
-
-    jupyter lab
