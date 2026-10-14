@@ -533,13 +533,13 @@
 <section id="let-s-consider-a-more-general-form-of-an-electricity-dispatch-problem">
 <h2>Let’s consider a more general form of an electricity dispatch problem<a class="headerlink" href="#let-s-consider-a-more-general-form-of-an-electricity-dispatch-problem" title="Link to this heading">#</a></h2>
 <p>For an <em>hourly</em> electricity market dispatch simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5abbf82-715e-4e05-b1cd-09aca569a1b5">
-<span class="eqno">(3)<a class="headerlink" href="#equation-d5abbf82-715e-4e05-b1cd-09aca569a1b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc839a52-4992-4063-9703-e55b307af6a4">
+<span class="eqno">(3)<a class="headerlink" href="#equation-fc839a52-4992-4063-9703-e55b307af6a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_{i,s,t} o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec459d7c-1ffb-4416-ae39-aca121dff5c3">
-<span class="eqno">(4)<a class="headerlink" href="#equation-ec459d7c-1ffb-4416-ae39-aca121dff5c3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7a08a22e-72f9-47ad-9c80-b325b2bfa847">
+<span class="eqno">(4)<a class="headerlink" href="#equation-7a08a22e-72f9-47ad-9c80-b325b2bfa847" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{nodal energy balance : bus} \\
