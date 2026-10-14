@@ -1,4 +1,4 @@
-# Welcome to the workshop!
+# Welcome to the PyPSA(-Eur) workshop and the Danish Energy Agency!
 *27-28 October 2026, DEA, Denmark*
 
 This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
@@ -20,7 +20,7 @@ Open any jupyter notebook and click on the rocket 🚀 in the top right corner. 
 If that does not work download the `.ipynb` file and import it in [Google Colab](https://colab.research.google.com/)
 
 
-# Local Installation (optional)
+## Local Installation (optional)
 
 You do not need a local installation if you are using Google Colab. For a local setup, first get a copy of the workshop repository by running:
 
