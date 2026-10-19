@@ -1,4 +1,4 @@
-# Welcome to the PyPSA(-Eur) workshop and the Danish Energy Agency!
+# Welcome to the PyPSA(-Eur) workshop at the Danish Energy Agency!
 *27-28 October 2026, DEA, Denmark*
 
 This repository contains PyPSA(-Eur) materials for a workshop organized for the Danish Energy Agency (DEA) employees interested in energy system modelling.
