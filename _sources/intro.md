@@ -15,6 +15,40 @@ More about our work:
 
 - CORC project: [Near-optimal solutions for carbon capture, conversion, storage, and removal strategies](https://iopscience.iop.org/article/10.1088/1748-9326/ae7a91) 
 
+
+## Preliminary agenda
+
+:::{div}
+:class: workshop-agenda-day
+
+### Day 1 — Tuesday, 27 October 2026
+
+
+| Time | Session |
+|---|---|
+| 09:00–10:15 | **Introduction to optimisation with PyPSA** |
+| 10:15–10:30 | *Break* |
+| 10:30–11:30 | **Modelling with PyPSA: dispatch optimization** |
+| 11:30–12:00 | *Lunch* |
+| 12:00–13:30 | **PyPSA-Eur workflow: introduction and hands-on modelling** |
+| 13:30–14:00 | **Wrap-up of day 1 and open questions** |
+
+:::
+
+:::{div}
+:class: workshop-agenda-day
+
+### Day 2 — Wednesday, 28 October 2026
+
+| Time | Session |
+|---|---|
+| 09:00–10:15 | **Modelling with PyPSA: sector-coupled modelling** |  
+| 10:15–10:30 | *Break* |
+| 10:30–11:30 | **PyPSA-Eur: a deeper look at the workflow** |
+| 11:30–12:00 | *Lunch* |
+| 12:00–13:30 | **PyPSA-Eur sector-coupled: hands-on modelling** |
+| 13:30–14:00 | **Wrap-up of day 2 and open questions** |
+
 ## Google Colab
 
 You can work with the workshop materials without a local Python installation using online service [Google Colab](https://colab.google) which provides an online Python environment. This requires only a Google account.
