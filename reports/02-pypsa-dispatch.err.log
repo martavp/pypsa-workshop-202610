@@ -23,10 +23,10 @@ n.add(
     ["coal", "gas", "oil", "hydro", "wind"],
     co2_emissions=emissions,
     nice_name=["Coal", "Gas", "Oil", "Hydro", "Onshore Wind"],
-    color=["grey", "indianred", "black", "aquamarine", "dodgerblue"],
+    color=["dimgrey", "tomato", "olive", "seagreen", "royalblue"],
 )
 
-n.add("Carrier", ["electricity", "AC"])
+n.add("Carrier", "AC", nice_name="Electricity", color="crimson")
 ------------------
 
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to pypsa and linopy: a simple dispatch problem &#8212; PyPSA(-Eur) workshop</title>
+    <title>Introduction: PyPSA &amp; linopy &#8212; PyPSA(-Eur) workshop</title>
   
   
   
@@ -67,7 +67,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="More pypsa features: more complex dispatch problems" href="02-pypsa-more-features.html" />
+    <link rel="next" title="Dispatch problems, Maps &amp; Statistics" href="02-pypsa-dispatch.html" />
     <link rel="prev" title="Introduction to PyPSA-Eur Slides" href="slides.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -218,15 +218,15 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to the PyPSA(-Eur) workshop and the Danish Energy Agency!
+                    Welcome to the PyPSA(-Eur) workshop at the Danish Energy Agency!
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="slides.html">Slide deck PyPSA(-Eur)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> and <code class="docutils literal notranslate"><span class="pre">linopy</span></code>: a simple dispatch problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02-pypsa-more-features.html">More <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> features: more complex dispatch problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-pypsa-sectors-expansion.html">Advanced models in <code class="docutils literal notranslate"><span class="pre">pypsa</span></code>: capacity expansion planning with sector coupling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction: PyPSA &amp; linopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-pypsa-dispatch.html">Dispatch problems, Maps &amp; Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-pypsa-sectors-expansion.html">Expansion Planning &amp; Sector Coupling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-python.html">Annex: Intro to the basics of <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-pandas.html">Annex: Tabular data analysis with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
@@ -442,7 +442,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to pypsa and linopy: a simple dispatch problem</h1>
+    <h1>Introduction: PyPSA & linopy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -460,10 +460,12 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-pypsa-model">Explore pypsa model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-let-s-write-optimization-problem-manually-amd-reproduce-the-pypsa-model">(If time allows) Let’s write optimization problem manually amd reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-pypsa-model">Explore the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">Let’s write optimization problem manually and reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-use-of-expressions">Making use of Expressions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#component-objects-in-pypsa-v1">Component objects in PyPSA v1</a></li>
 </ul>
             </nav>
         </div>
@@ -475,11 +477,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pypsa-and-linopy-a-simple-dispatch-problem">
-<h1>Introduction to <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> and <code class="docutils literal notranslate"><span class="pre">linopy</span></code>: a simple dispatch problem<a class="headerlink" href="#introduction-to-pypsa-and-linopy-a-simple-dispatch-problem" title="Link to this heading">#</a></h1>
-<img src="https://github.com/fneum/data-science-for-esm/raw/main/data-science-for-esm/pypsa-logo.png" width="300px" />
-<p>PyPSA stands for <strong>Python for Power System Analysis</strong>.</p>
-<p>PyPSA is an open source Python package for simulating and optimising modern energy systems that include features such as</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-pypsa-linopy">
+<h1>Introduction: PyPSA &amp; linopy<a class="headerlink" href="#introduction-pypsa-linopy" title="Link to this heading">#</a></h1>
+<img src="https://docs.pypsa.org/latest/assets/logo/logo-primary-light.svg#only-light" width="260px" /><p><code class="docutils literal notranslate"><span class="pre">PyPSA</span></code> is an open source Python package for simulating and optimising modern energy systems that include features such as</p>
 <ul class="simple">
 <li><p>conventional generators with unit commitment (ramp-up, ramp-down, start-up, shut-down),</p></li>
 <li><p>time-varying wind and solar generation,</p></li>
@@ -508,13 +508,13 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Documentation for this package is available at <a class="reference external" href="https://pypsa.readthedocs.io">https://pypsa.readthedocs.io</a>.</p>
+<p>Documentation for this package is available at <a class="reference external" href="https://docs.pypsa.org/">https://docs.pypsa.org/</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you have not yet set up Python on your computer, you can execute this tutorial in your browser via <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Click on the rocket in the top right corner and launch “Colab”. If that doesn’t work download the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file and import it in <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p>
-<p>Then install the following packages by executing the following command in a Jupyter cell at the top of the notebook.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa<span class="w"> </span>highspy
+<p><strong>On the workshop JupyterHub, everything is already installed</strong> - just log in and run the cells below, nothing to set up.</p>
+<p>No hub access? You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/01-pypsa-intro.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa
 </pre></div>
 </div>
 </div>
@@ -528,34 +528,34 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#network">Network</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/design/#network-components">Network</a></p></td>
 <td><p>Container for all components.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#bus">Bus</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/buses/">Bus</a></p></td>
 <td><p>Node where components attach.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#carrier">Carrier</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/carriers/">Carrier</a></p></td>
 <td><p>Energy carrier or technology (e.g. electricity, hydrogen, gas, coal, oil, biomass, on-/offshore wind, solar). Can track properties such as specific carbon dioxide emissions or nice names and colors for plots.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#load">Load</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/loads/">Load</a></p></td>
 <td><p>Energy consumer (e.g. electricity demand).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#generator">Generator</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/generators/">Generator</a></p></td>
 <td><p>Generator (e.g. power plant, wind turbine, PV panel).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#line">Line</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/lines/">Line</a></p></td>
 <td><p>Power distribution and transmission lines (overhead and cables).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#link">Link</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/links/">Link</a></p></td>
 <td><p>Links connect two buses with controllable energy flow, direction-control and losses. They can be used to model: <ul><li>HVDC links</li><li>HVAC lines (neglecting KVL, only net transfer capacities (NTCs))</li><li>conversion between carriers (e.g. electricity to hydrogen in electrolysis)</li></ul></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#storage-unit">StorageUnit</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/storage-units/">StorageUnit</a></p></td>
 <td><p>Storage with fixed nominal energy-to-power ratio.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#store">Store</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/stores/">Store</a></p></td>
 <td><p>Storage with separately extendable energy capacity.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#global-constraints">GlobalConstraint</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/global-constraints/">GlobalConstraint</a></p></td>
 <td><p>Constraints affecting many components at once, such as emission limits.</p></td>
 </tr>
 </tbody>
@@ -572,7 +572,7 @@
 <h3>Simple electricity market problem<a class="headerlink" href="#simple-electricity-market-problem" title="Link to this heading">#</a></h3>
 <p>generator 1: “gas” – marginal cost 70 EUR/MWh – capacity 50 MW</p>
 <p>generator 2: “nuclear” – marginal cost 10 EUR/MWh – capacity 100 MW</p>
-<p>load: “Consumer” – demand 120 MW</p>
+<p>load: “Small town” – demand 120 MW</p>
 <p>single time step (“now”)</p>
 <p>single node (“Springfield”)</p>
 </section>
@@ -616,7 +616,8 @@ Snapshots: 1
 </div>
 </div>
 <p>The second component we need are buses. <strong>Buses</strong> are the fundamental nodes of the network, to which all other components like loads, generators and transmission lines attach. They enforce energy conservation for all elements feeding in and out of it (i.e. Kirchhoff’s Current Law).</p>
-<p>Components can be added to the network <code class="docutils literal notranslate"><span class="pre">n</span></code> using the <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function. It takes the component name as a first argument, the name of the component as a second argument and possibly further parameters as keyword arguments. Let’s use this function, to add buses for each country to our network:</p>
+<img src="https://docs.pypsa.org/latest/assets/images/buses.png" width="500px" />
+<p>Components can be added to the network <code class="docutils literal notranslate"><span class="pre">n</span></code> using the <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function. It takes the component name as a first argument, the name of the component as a second argument and possibly further parameters as keyword arguments. Let’s use this function to add a single bus, “Springfield”, to our network:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Bus"</span><span class="p">,</span> <span class="s2">"Springfield"</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span> <span class="n">carrier</span><span class="o">=</span><span class="s2">"AC"</span><span class="p">)</span>
@@ -702,7 +703,7 @@ Snapshots: 1
 </table>
 </div></div></div>
 </div>
-<p>You see there are many more attributes than we specified while adding the buses; many of them are filled with default parameters which were added. You can look up the field description, defaults and status (required input, optional input, output) for buses here <a class="reference external" href="https://pypsa.readthedocs.io/en/latest/components.html#bus">https://pypsa.readthedocs.io/en/latest/components.html#bus</a>, and analogous for all other components.</p>
+<p>You see there are many more attributes than we specified while adding the buses; many of them are filled with default parameters which were added. You can look up the field description, defaults and status (required input, optional input, output) for buses here <a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/buses/">https://docs.pypsa.org/latest/user-guide/components/buses/</a>, and analogous for all other components.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function lets you add any component to the network object <code class="docutils literal notranslate"><span class="pre">n</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -726,7 +727,6 @@ Snapshots: 1
 </div>
 </div>
 </div>
-<p>The method <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> also allows you to add multiple components at once. For instance, multiple <strong>carriers</strong> for the fuels with information on specific carbon dioxide emissions, a nice name, and colors for plotting. For this, the function takes the component name as the first argument and then a list of component names and then optional arguments for the parameters. Here, scalar values, lists, dictionary or <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> are allowed. The latter two needs keys or indices with the component names.</p>
 <p>As a result, the <code class="docutils literal notranslate"><span class="pre">n.generators</span></code> DataFrame looks like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -933,13 +933,13 @@ Snapshots: 1
 <h2>Optimisation<a class="headerlink" href="#optimisation" title="Link to this heading">#</a></h2>
 <p>The design principle of PyPSA is that basically each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</p>
 <p>For this dispatch problem, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c75a1c1e-e492-41e8-9c98-7db249e30659">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c75a1c1e-e492-41e8-9c98-7db249e30659" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f06375b-82b2-4dd7-b3e9-23e3a24135a3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-1f06375b-82b2-4dd7-b3e9-23e3a24135a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{s,t};} \sum_{t,s} o_{s} g_{s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2d6e0a1-7358-42a4-b200-71dcd4160dc7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a2d6e0a1-7358-42a4-b200-71dcd4160dc7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-39191e30-da9e-4739-a9a7-a9cc52aae6e2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-39191e30-da9e-4739-a9a7-a9cc52aae6e2" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{s,t} \leq G_{s}  &amp; \text{generation limits : generator} \\
 D_t &amp;= \sum_s g_{s,t} &amp; \text{market clearing : bus} \\
 \end{align}\]</div>
@@ -951,19 +951,19 @@ D_t &amp;= \sum_s g_{s,t} &amp; \text{market clearing : bus} \\
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(o_{s}\)</span> is the marginal generation cost of technology <span class="math notranslate nohighlight">\(s\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(G_{s}\)</span> is the nominal capacity of technology <span class="math notranslate nohighlight">\(s\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(D_t\)</span> is the power demand in Springfiled at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_t\)</span> is the power demand in Springfield at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
 </ul>
 <p>With all input data transferred into the PyPSA’s data structure (<code class="docutils literal notranslate"><span class="pre">network</span></code>), we can now build and run the resulting optimisation problem. In PyPSA, building, solving and retrieving results from the optimisation model is contained in a single function call <code class="docutils literal notranslate"><span class="pre">n.optimize()</span></code>. This function optimizes dispatch and investment decisions for least cost adhering to the constraints defined in the network.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">n.optimize()</span></code> function can take a variety of arguments. The most relevant for the moment is the choice of the solver (e.g. “highs” and “gurobi”). They need to be installed on your computer, to use them here!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">,</span> <span class="n">assign_all_duals</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2371/2480896831.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
-  n.optimize(solver_name="highs", assign_all_duals=True)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2359/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+  n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['Springfield'], dtype='object', name='name')
 </pre></div>
@@ -987,9 +987,12 @@ Solver model: available
 Solver message: Optimal
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper were not assigned to the network.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-i15ze1r1 has 5 rows; 2 cols; 6 nonzeros
+LP linopy-problem-3fci8xnl has 5 rows; 2 cols; 6 nonzeros
 Coefficient ranges:
   Matrix  [1e+00, 1e+00]
   Cost    [1e+01, 7e+01]
@@ -1002,7 +1005,7 @@ Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empt
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-i15ze1r1
+Model name          : linopy-problem-3fci8xnl
 Model status        : Optimal
 Objective value     :  2.4000000000e+03
 P-D objective error :  0.0000000000e+00
@@ -1138,27 +1141,22 @@ HiGHS run time      :          0.00
   <thead>
     <tr style="text-align: right;">
       <th>name</th>
-      <th>gas</th>
-      <th>nuclear</th>
     </tr>
     <tr>
       <th>snapshot</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>now</th>
-      <td>-0.0</td>
-      <td>-60.0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<section id="explore-pypsa-model">
-<h3>Explore pypsa model<a class="headerlink" href="#explore-pypsa-model" title="Link to this heading">#</a></h3>
+<section id="explore-the-pypsa-model">
+<h3>Explore the PyPSA model<a class="headerlink" href="#explore-the-pypsa-model" title="Link to this heading">#</a></h3>
+<p>Under the hood, a call to <code class="docutils literal notranslate"><span class="pre">n.optimize()</span></code> builds a <code class="docutils literal notranslate"><span class="pre">linopy</span></code> optimisation model, solves it with the specified solver, and then retrieves the results back into the PyPSA data structure. We can access this intermediate <code class="docutils literal notranslate"><span class="pre">linopy</span></code> model via <code class="docutils literal notranslate"><span class="pre">n.model</span></code>. This allows us to explore the optimisation model in more detail, for instance to see all variables and constraints that were added to the optimisation problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span>
@@ -1251,9 +1249,58 @@ Value: 2400.0
 </div>
 </div>
 </div>
+<p>We can also retrieve the shadow prices (duals) of individual constraints, e.g. of the upper generation limits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constraints</span><span class="p">[</span><span class="s2">"Generator-fix-p-upper"</span><span class="p">]</span><span class="o">.</span><span class="n">dual</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>dual</th>
+    </tr>
+    <tr>
+      <th>snapshot</th>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">now</th>
+      <th>gas</th>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>nuclear</th>
+      <td>-60.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
-<section id="if-time-allows-let-s-write-optimization-problem-manually-amd-reproduce-the-pypsa-model">
-<h3>(If time allows) Let’s write optimization problem manually amd reproduce the PyPSA model<a class="headerlink" href="#if-time-allows-let-s-write-optimization-problem-manually-amd-reproduce-the-pypsa-model" title="Link to this heading">#</a></h3>
+<section id="let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">
+<h3>Let’s write optimization problem manually and reproduce the PyPSA model<a class="headerlink" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model" title="Link to this heading">#</a></h3>
 <p>PyPSA optimisation module is based on <a class="reference external" href="https://linopy.readthedocs.io/en/latest/index.html">Linopy</a> — an open-source framework for formulating, solving, and analyzing optimization problems with Python.</p>
 <p>With Linopy, you can create optimization models within Python that consist of decision variables, constraints, and optimization objectives. You can then solve these instances using a variety of commercial and open-source solvers (specialised software).</p>
 <p><a class="reference external" href="https://github.com/pypsa/linopy">Linopy</a> supports a wide range of problem types, including:</p>
@@ -1266,13 +1313,6 @@ Value: 2400.0
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Documentation for this package is available at <a class="reference external" href="https://linopy.readthedocs.io">https://linopy.readthedocs.io</a>.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">linopy</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1300,92 +1340,16 @@ Value: 2400.0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_constraints</span><span class="p">(</span>
-    <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"Generator"</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">loads</span><span class="o">.</span><span class="n">p_set</span><span class="p">[</span><span class="s2">"Small town"</span><span class="p">],</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"name"</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">loads</span><span class="o">.</span><span class="n">p_set</span><span class="p">[</span><span class="s2">"Small town"</span><span class="p">],</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"nodal_balance"</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_constraints</span><span class="p">(</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"Generator"</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">loads</span><span class="o">.</span><span class="n">p_set</span><span class="p">[</span><span class="s2">"Small town"</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">name</span><span class="o">=</span><span class="s2">"nodal_balance"</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/variables.py:1291,</span> in <span class="ni">Variable.sum</span><span class="nt">(self, dim, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1288</span> <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1289</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown keyword argument(s): </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1291</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_linexpr</span><span class="p">(</span><span class="n">_warn_absence</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:2758,</span> in <span class="ni">LinearExpression.sum</span><span class="nt">(self, dim, drop_zeros, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2756</span> <span class="n">csr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_csr</span>
-<span class="g g-Whitespace">   </span><span class="mi">2757</span> <span class="k">if</span> <span class="n">csr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2758</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">drop_zeros</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2759</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">EllipsisType</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2760</span>     <span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Hashable</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csr</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:1836,</span> in <span class="ni">BaseExpression.sum</span><span class="nt">(self, dim, drop_zeros, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1833</span> <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1834</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown keyword argument(s): </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1836</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1838</span> <span class="k">if</span> <span class="n">drop_zeros</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1839</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">densify_terms</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:2377,</span> in <span class="ni">BaseExpression._sum</span><span class="nt">(cls, expr, dim)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2373</span>     <span class="n">dim</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dim</span> <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="n">TERM_DIM</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2374</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">_drop_coords_on_dims</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">"coeffs"</span><span class="p">,</span> <span class="s2">"vars"</span><span class="p">]],</span> <span class="n">dim</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2375</span>         <span class="p">{</span><span class="n">TERM_DIM</span><span class="p">:</span> <span class="n">STACKED_TERM_DIM</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2376</span>     <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2377</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">_stack_into_term_dim</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="p">[</span><span class="n">STACKED_TERM_DIM</span><span class="p">]</span> <span class="o">+</span> <span class="n">dim</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2378</span>     <span class="n">ds</span> <span class="o">=</span> <span class="n">assign_multiindex_safe</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">2380</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/linopy/expressions.py:202,</span> in <span class="ni">_stack_into_term_dim</span><span class="nt">(ds, dims)</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span><span class="w"> </span><span class="sd">"""</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span><span class="sd"> Stack ``dims`` into the term dimension.</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span><span class="sd"> </span>
-<span class="sd">   (...)    199 so an empty dataset is stacked onto a term dimension of size 0 instead.</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="sd"> """</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">vars</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">stack</span><span class="p">({</span><span class="n">TERM_DIM</span><span class="p">:</span> <span class="n">dims</span><span class="p">},</span> <span class="n">create_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">204</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">da</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span>     <span class="n">kept</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">dims</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/util/deprecation_helpers.py:144,</span> in <span class="ni">deprecate_dims.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="n">emit_user_level_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="sa">f</span><span class="s2">"The `</span><span class="si">{</span><span class="n">old_name</span><span class="si">}</span><span class="s2">` argument has been renamed to `dim`, and will be removed "</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="s2">"in the future. This renaming is taking place throughout xarray over the "</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">141</span>         <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">"dim"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">144</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/dataset.py:5383,</span> in <span class="ni">Dataset.stack</span><span class="nt">(self, dim, create_index, index_cls, **dim_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5379</span>         <span class="s2">"""</span>
-<span class="g g-Whitespace">   </span><span class="mi">5380</span><span class="s2">         dim = either_dict_or_kwargs(dim, dim_kwargs, "stack")</span>
-<span class="g g-Whitespace">   </span><span class="mi">5381</span><span class="s2">         result = self</span>
-<span class="g g-Whitespace">   </span><span class="mi">5382</span><span class="s2">         for new_dim, dims in dim.items():</span>
-<span class="ne">-&gt; </span><span class="mi">5383</span><span class="s2">             result = result._stack_once(dims, new_dim, index_cls, create_index)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5384</span><span class="s2">         return result</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/dataset.py:5296,</span> in <span class="ni">Dataset._stack_once</span><span class="nt">(self, dims, new_dim, index_cls, create_index)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5292</span><span class="s2">         for name, var in self.variables.items():</span>
-<span class="g g-Whitespace">   </span><span class="mi">5293</span><span class="s2">             if any(d in var.dims for d in dims):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5294</span><span class="s2">                 add_dims = [d for d in dims if d not in var.dims]</span>
-<span class="g g-Whitespace">   </span><span class="mi">5295</span><span class="s2">                 vdims = list(var.dims) + add_dims</span>
-<span class="ne">-&gt; </span><span class="mi">5296</span><span class="s2">                 shape = [self.sizes[d] for d in vdims]</span>
-<span class="g g-Whitespace">   </span><span class="mi">5297</span><span class="s2">                 exp_var = var.set_dims(vdims, shape)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5298</span><span class="s2">                 stacked_var = exp_var.stack({new_dim: dims})</span>
-<span class="g g-Whitespace">   </span><span class="mi">5299</span><span class="s2">                 new_variables[name] = stacked_var</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/xarray/core/utils.py:506,</span> in <span class="ni">Frozen.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">505</span><span class="s2"> def __getitem__(self, key: K) -&gt; V:</span>
-<span class="ne">--&gt; </span><span class="mi">506</span><span class="s2">     return self.mapping[key]</span>
-
-<span class="ne">KeyError</span>: 'Generator'
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constraint `nodal_balance` [snapshot: 1]:
+-----------------------------------------
+[now]: +1 Generator-p[now, gas] + 1 Generator-p[now, nuclear] = 120.0
 </pre></div>
 </div>
 </div>
@@ -1396,12 +1360,26 @@ Value: 2400.0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constraint `p_lower_gas` [snapshot: 1]:
+---------------------------------------
+[now]: +1 Generator-p[now, gas] ≥ -0.0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_constraints</span><span class="p">(</span>
-    <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">"nuclear"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"p_lower_coal"</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">"nuclear"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"p_lower_nuclear"</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constraint `p_lower_nuclear` [snapshot: 1]:
+-------------------------------------------
+[now]: +1 Generator-p[now, nuclear] ≥ -0.0
 </pre></div>
 </div>
 </div>
@@ -1415,6 +1393,13 @@ Value: 2400.0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constraint `p_upper_gas` [snapshot: 1]:
+---------------------------------------
+[now]: +1 Generator-p[now, gas] ≤ 50.0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1422,6 +1407,13 @@ Value: 2400.0
     <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">"nuclear"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">p_nom</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"nuclear"</span><span class="p">],</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"p_upper_nuclear"</span><span class="p">,</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Constraint `p_upper_nuclear` [snapshot: 1]:
+-------------------------------------------
+[now]: +1 Generator-p[now, nuclear] ≤ 100.0
 </pre></div>
 </div>
 </div>
@@ -1433,11 +1425,71 @@ Value: 2400.0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>linopy.model.Constraints
+------------------------
+ * nodal_balance (snapshot)
+ * p_lower_gas (name, snapshot)
+ * p_lower_nuclear (name, snapshot)
+ * p_upper_gas (name, snapshot)
+ * p_upper_nuclear (name, snapshot)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s ensure that we get the same results as when using the <code class="docutils literal notranslate"><span class="pre">n.optimize()</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">solve_model</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 2 primals, 10 duals
+Objective: 2.40e+03
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints nodal_balance, p_lower_gas, p_lower_nuclear, p_upper_gas, p_upper_nuclear were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP linopy-problem-kutn7jlq has 5 rows; 2 cols; 6 nonzeros
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [1e+01, 7e+01]
+  Bound   [0e+00, 0e+00]
+  RHS     [5e+01, 1e+02]
+Presolving model
+0 rows, 0 cols, 0 nonzeros 0s
+0 rows, 0 cols, 0 nonzeros 0s
+Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empty
+Performed postsolve
+Solving the original LP from the solution after postsolve
+
+Model name          : linopy-problem-kutn7jlq
+Model status        : Optimal
+Objective value     :  2.4000000000e+03
+P-D objective error :  0.0000000000e+00
+HiGHS run time      :          0.00
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
 </pre></div>
 </div>
 </div>
@@ -1448,8 +1500,470 @@ Value: 2400.0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>gas</th>
+      <th>nuclear</th>
+    </tr>
+    <tr>
+      <th>snapshot</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>now</th>
+      <td>20.0</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linopy LP model
+===============
+
+Variables:
+----------
+ * Generator-p (snapshot, name)
+
+Expressions:
+------------
+&lt;empty&gt;
+
+Constraints:
+------------
+ * nodal_balance (snapshot)
+ * p_lower_gas (name, snapshot)
+ * p_lower_nuclear (name, snapshot)
+ * p_upper_gas (name, snapshot)
+ * p_upper_nuclear (name, snapshot)
+
+Status:
+-------
+ok
+</pre></div>
+</div>
+</div>
 </div>
 </section>
+<section id="making-use-of-expressions">
+<h3>Making use of Expressions<a class="headerlink" href="#making-use-of-expressions" title="Link to this heading">#</a></h3>
+<p>Besides variables and constraints, a <code class="docutils literal notranslate"><span class="pre">linopy</span></code> model has a third group: <strong>Expressions</strong>. These are <em>named</em> linear expressions, i.e. combinations of variables that are not (yet) turned into a constraint or an objective.</p>
+<p>Registering an expression with <code class="docutils literal notranslate"><span class="pre">n.model.add_expressions(...,</span> <span class="pre">name=...)</span></code> makes it part of the model:</p>
+<ul class="simple">
+<li><p>it appears in the model summary,</p></li>
+<li><p>it can be reused when building further expressions, constraints or the objective,</p></li>
+<li><p>after solving, it evaluates to numbers via <code class="docutils literal notranslate"><span class="pre">.solution</span></code>.</p></li>
+</ul>
+<p>This is handy for derived quantities you want to report, without recomputing them by hand from the decision variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># total dispatch per snapshot, dims: (snapshot)</span>
+<span class="n">total_generation</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_expressions</span><span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"name"</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"total_generation"</span>
+<span class="p">)</span>
+<span class="n">total_generation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearExpression [snapshot: 1]:
+-------------------------------
+[now]: +1 Generator-p[now, gas] + 1 Generator-p[now, nuclear]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># operational cost; a scalar expression that should coincide with the objective</span>
+<span class="n">operational_cost</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_expressions</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">marginal_cost</span> <span class="o">*</span> <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s2">"Generator-p"</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"operational_cost"</span>
+<span class="p">)</span>
+<span class="n">operational_cost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearExpression
+----------------
++70 Generator-p[now, gas] + 10 Generator-p[now, nuclear]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the Expressions group is no longer empty. Expressions have no numerical value until the model is solved.</span>
+<span class="n">n</span><span class="o">.</span><span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linopy LP model
+===============
+
+Variables:
+----------
+ * Generator-p (snapshot, name)
+
+Expressions:
+------------
+ * total_generation (snapshot)
+ * operational_cost
+
+Constraints:
+------------
+ * nodal_balance (snapshot)
+ * p_lower_gas (name, snapshot)
+ * p_lower_nuclear (name, snapshot)
+ * p_upper_gas (name, snapshot)
+ * p_upper_nuclear (name, snapshot)
+
+Status:
+-------
+ok
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 2 primals, 10 duals
+Objective: 2.40e+03
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP linopy-problem-faafphyv has 5 rows; 2 cols; 6 nonzeros
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [1e+01, 7e+01]
+  Bound   [0e+00, 0e+00]
+  RHS     [5e+01, 1e+02]
+Presolving model
+0 rows, 0 cols, 0 nonzeros 0s
+0 rows, 0 cols, 0 nonzeros 0s
+Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empty
+Performed postsolve
+Solving the original LP from the solution after postsolve
+
+Model name          : linopy-problem-faafphyv
+Model status        : Optimal
+Objective value     :  2.4000000000e+03
+P-D objective error :  0.0000000000e+00
+HiGHS run time      :          0.00
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all registered expressions evaluated at the optimum, as one xarray.Dataset</span>
+<span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">expressions</span><span class="o">.</span><span class="n">solution</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_generation</th>
+      <th>operational_cost</th>
+    </tr>
+    <tr>
+      <th>snapshot</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>now</th>
+      <td>120.0</td>
+      <td>2400.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or one at a time; the cost expression reproduces the objective value</span>
+<span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">expressions</span><span class="p">[</span><span class="s2">"operational_cost"</span><span class="p">]</span><span class="o">.</span><span class="n">solution</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="component-objects-in-pypsa-v1">
+<h2>Component objects in PyPSA v1<a class="headerlink" href="#component-objects-in-pypsa-v1" title="Link to this heading">#</a></h2>
+<p>Since PyPSA v1.0, every component type also has a dedicated <a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/"><code class="docutils literal notranslate"><span class="pre">Components</span></code> object</a>, available through <code class="docutils literal notranslate"><span class="pre">n.components</span></code> or its short alias <code class="docutils literal notranslate"><span class="pre">n.c</span></code>. The <code class="docutils literal notranslate"><span class="pre">Components</span></code> class adds functionality beyond raw DataFrames, including shared methods and properties on <a class="reference external" href="https://docs.pypsa.org/latest/api/components/components/"><code class="docutils literal notranslate"><span class="pre">pypsa.Components</span></code></a> and features specific to individual component types.</p>
+<p>The underlying pandas-based data structure remains unchanged. Each component object provides access to two stores:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.static</span></code>: one row per asset for values that do not vary across snapshots, such as nominal capacity or marginal cost;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dynamic</span></code>: a dictionary-like collection of time-indexed DataFrames, such as dispatch or marginal prices.</p></li>
+</ul>
+<p>These are exactly the same data exposed by the familiar plural and <code class="docutils literal notranslate"><span class="pre">_t</span></code> accessors. For example, <code class="docutils literal notranslate"><span class="pre">n.components.generators.static</span></code> is <code class="docutils literal notranslate"><span class="pre">n.generators</span></code>, while <code class="docutils literal notranslate"><span class="pre">n.components.generators.dynamic</span></code> is <code class="docutils literal notranslate"><span class="pre">n.generators_t</span></code>. Both styles are supported in PyPSA v1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the Generators component object, which bundles component data and functionality</span>
+<span class="n">generators</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">generators</span>
+<span class="n">generators</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'Generator' Components
+----------------------
+Attached to PyPSA Network 'Unnamed Network'
+Components: 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access time-dependent dispatch through the familiar `_t` accessor</span>
+<span class="n">n</span><span class="o">.</span><span class="n">generators_t</span><span class="o">.</span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>gas</th>
+      <th>nuclear</th>
+    </tr>
+    <tr>
+      <th>snapshot</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>now</th>
+      <td>20.0</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the same dispatch DataFrame through the Components API</span>
+<span class="n">generators</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name</th>
+      <th>gas</th>
+      <th>nuclear</th>
+    </tr>
+    <tr>
+      <th>snapshot</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>now</th>
+      <td>20.0</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Confirm that both accessors point to the exact same DataFrame, not a copy</span>
+<span class="n">n</span><span class="o">.</span><span class="n">generators_t</span><span class="o">.</span><span class="n">p</span> <span class="ow">is</span> <span class="n">n</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select static generator attributes, with one row per asset</span>
+<span class="n">generators</span><span class="o">.</span><span class="n">static</span><span class="p">[[</span><span class="s2">"bus"</span><span class="p">,</span> <span class="s2">"p_nom"</span><span class="p">,</span> <span class="s2">"marginal_cost"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bus</th>
+      <th>p_nom</th>
+      <th>marginal_cost</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gas</th>
+      <td>Springfield</td>
+      <td>50.0</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>nuclear</th>
+      <td>Springfield</td>
+      <td>100.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect which generators are extendable and which have fixed capacities</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generators</span><span class="o">.</span><span class="n">extendables</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generators</span><span class="o">.</span><span class="n">fixed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([], dtype='object', name='name')
+Index(['gas', 'nuclear'], dtype='object', name='name')
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1462,16 +1976,16 @@ Value: 2400.0
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: ""
         },
         kernelOptions: {
-            name: "python3",
+            name: "",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = ''</script>
 
                 </article>
               
@@ -1493,11 +2007,11 @@ Value: 2400.0
       </div>
     </a>
     <a class="right-next"
-       href="02-pypsa-more-features.html"
+       href="02-pypsa-dispatch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">More <code class="docutils literal notranslate"><span class="pre">pypsa</span></code> features: more complex dispatch problems</p>
+        <p class="prev-next-title">Dispatch problems, Maps &amp; Statistics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1527,10 +2041,12 @@ Value: 2400.0
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-pypsa-model">Explore pypsa model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-let-s-write-optimization-problem-manually-amd-reproduce-the-pypsa-model">(If time allows) Let’s write optimization problem manually amd reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-pypsa-model">Explore the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">Let’s write optimization problem manually and reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-use-of-expressions">Making use of Expressions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#component-objects-in-pypsa-v1">Component objects in PyPSA v1</a></li>
 </ul>
   </nav></div>
 
