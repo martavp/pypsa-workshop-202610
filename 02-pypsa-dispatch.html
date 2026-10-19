@@ -462,7 +462,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-networks">Modifying networks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-constraints-for-emission-limits">Global constraints for emission limits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-export">Data import and export</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-grid-model-with-time-resolution">Example grid model with time resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-example-grid-model-with-time-resolution">(If time allows) Example grid model with time resolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-network-plotting">Interactive network plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -481,8 +481,7 @@
 <h1>Dispatch problems, Maps &amp; Statistics<a class="headerlink" href="#dispatch-problems-maps-statistics" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>On the workshop JupyterHub, everything is already installed</strong> - just log in and run the cells below, nothing to set up.</p>
-<p>No hub access? You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/02-pypsa-dispatch-problems.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
+<p>You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/02-pypsa-dispatch-problems.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa<span class="w"> </span>cartopy
 </pre></div>
 </div>
@@ -537,13 +536,13 @@
 <section id="a-more-general-form-of-an-electricity-dispatch-problem">
 <h2>A more general form of an electricity dispatch problem<a class="headerlink" href="#a-more-general-form-of-an-electricity-dispatch-problem" title="Link to this heading">#</a></h2>
 <p>For an <em>hourly</em> electricity market dispatch simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-151902de-133c-4da8-b2ba-bce09977478c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-151902de-133c-4da8-b2ba-bce09977478c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d4edc264-6c14-43f9-a54f-003a63376630">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d4edc264-6c14-43f9-a54f-003a63376630" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_{i,s,t} o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8c30402-7a21-44a3-86ac-fe3579cea556">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b8c30402-7a21-44a3-86ac-fe3579cea556" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b1cddbcc-dd73-4178-9251-41a3e5dc229c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-b1cddbcc-dd73-4178-9251-41a3e5dc229c" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{nodal energy balance : bus} \\
@@ -1274,8 +1273,8 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
 </div>
 </div>
 </section>
-<section id="example-grid-model-with-time-resolution">
-<h2>Example grid model with time resolution<a class="headerlink" href="#example-grid-model-with-time-resolution" title="Link to this heading">#</a></h2>
+<section id="if-time-allows-example-grid-model-with-time-resolution">
+<h2>(If time allows) Example grid model with time resolution<a class="headerlink" href="#if-time-allows-example-grid-model-with-time-resolution" title="Link to this heading">#</a></h2>
 <p><strong>Dispatch problem with German SciGRID network</strong></p>
 <p><a class="reference external" href="https://www.dlr.de/en/ve/research-and-transfer/projects/project-scigrid">SciGRID</a> is a project that provides an open reference model of the European transmission network. The network comprises time series for loads and the availability of renewable generation at an hourly resolution for January 1, 2011 as well as approximate generation capacities in 2014. This dataset is a little out of date and only intended to demonstrate the capabilities of PyPSA.</p>
 <p>We load it as a second network <code class="docutils literal notranslate"><span class="pre">n2</span></code>, so that our two-country network <code class="docutils literal notranslate"><span class="pre">n</span></code> stays available for the exercises at the end:</p>
@@ -1646,7 +1645,7 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-networks">Modifying networks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-constraints-for-emission-limits">Global constraints for emission limits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-export">Data import and export</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-grid-model-with-time-resolution">Example grid model with time resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-example-grid-model-with-time-resolution">(If time allows) Example grid model with time resolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-network-plotting">Interactive network plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>

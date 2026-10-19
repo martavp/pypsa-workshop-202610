@@ -461,7 +461,7 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-pypsa-model">Explore the PyPSA model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">Let’s write optimization problem manually and reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-we-can-also-write-optimization-problem-manually-and-reproduce-the-pypsa-model">(If time allows) We can also write optimization problem manually and reproduce the PyPSA model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-use-of-expressions">Making use of Expressions</a></li>
 </ul>
 </li>
@@ -512,8 +512,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>On the workshop JupyterHub, everything is already installed</strong> - just log in and run the cells below, nothing to set up.</p>
-<p>No hub access? You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/01-pypsa-intro.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
+<p>You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/01-pypsa-intro.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa
 </pre></div>
 </div>
@@ -933,13 +932,13 @@ Snapshots: 1
 <h2>Optimisation<a class="headerlink" href="#optimisation" title="Link to this heading">#</a></h2>
 <p>The design principle of PyPSA is that basically each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</p>
 <p>For this dispatch problem, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fc881fe-ca0d-4a3e-b73a-58c16ffafb27">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6fc881fe-ca0d-4a3e-b73a-58c16ffafb27" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-97ac58d8-7e88-4cda-8319-bf4d89c97f4a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-97ac58d8-7e88-4cda-8319-bf4d89c97f4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{s,t};} \sum_{t,s} o_{s} g_{s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09dca3f6-5a2d-4a9c-9146-73b97e020d8f">
-<span class="eqno">(2)<a class="headerlink" href="#equation-09dca3f6-5a2d-4a9c-9146-73b97e020d8f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d3770ab1-e6a9-4b18-a968-cafa502f3241">
+<span class="eqno">(2)<a class="headerlink" href="#equation-d3770ab1-e6a9-4b18-a968-cafa502f3241" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{s,t} \leq G_{s}  &amp; \text{generation limits : generator} \\
 D_t &amp;= \sum_s g_{s,t} &amp; \text{market clearing : bus} \\
 \end{align}\]</div>
@@ -962,7 +961,7 @@ D_t &amp;= \sum_s g_{s,t} &amp; \text{market clearing : bus} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2354/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2138/3144390136.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs")
 WARNING:pypsa.consistency:The following buses have carriers which are not defined. Run n.sanitize() to add them. Components with undefined carriers:
 Index(['Springfield'], dtype='object', name='name')
@@ -992,7 +991,7 @@ Solver message: Optimal
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-nhmmljy8 has 5 rows; 2 cols; 6 nonzeros
+LP linopy-problem-86w9mdrx has 5 rows; 2 cols; 6 nonzeros
 Coefficient ranges:
   Matrix  [1e+00, 1e+00]
   Cost    [1e+01, 7e+01]
@@ -1005,7 +1004,7 @@ Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empt
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-nhmmljy8
+Model name          : linopy-problem-86w9mdrx
 Model status        : Optimal
 Objective value     :  2.4000000000e+03
 P-D objective error :  0.0000000000e+00
@@ -1299,8 +1298,8 @@ Value: 2400.0
 </div></div></div>
 </div>
 </section>
-<section id="let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">
-<h3>Let’s write optimization problem manually and reproduce the PyPSA model<a class="headerlink" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model" title="Link to this heading">#</a></h3>
+<section id="if-time-allows-we-can-also-write-optimization-problem-manually-and-reproduce-the-pypsa-model">
+<h3>(If time allows) We can also write optimization problem manually and reproduce the PyPSA model<a class="headerlink" href="#if-time-allows-we-can-also-write-optimization-problem-manually-and-reproduce-the-pypsa-model" title="Link to this heading">#</a></h3>
 <p>PyPSA optimisation module is based on <a class="reference external" href="https://linopy.readthedocs.io/en/latest/index.html">Linopy</a> — an open-source framework for formulating, solving, and analyzing optimization problems with Python.</p>
 <p>With Linopy, you can create optimization models within Python that consist of decision variables, constraints, and optimization objectives. You can then solve these instances using a variety of commercial and open-source solvers (specialised software).</p>
 <p><a class="reference external" href="https://github.com/pypsa/linopy">Linopy</a> supports a wide range of problem types, including:</p>
@@ -1448,7 +1447,7 @@ Value: 2400.0
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.01s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1469,7 +1468,7 @@ Solver message: Optimal
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-udh4aemn has 5 rows; 2 cols; 6 nonzeros
+LP linopy-problem-ijpqnwr9 has 5 rows; 2 cols; 6 nonzeros
 Coefficient ranges:
   Matrix  [1e+00, 1e+00]
   Cost    [1e+01, 7e+01]
@@ -1482,7 +1481,7 @@ Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empt
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-udh4aemn
+Model name          : linopy-problem-ijpqnwr9
 Model status        : Optimal
 Objective value     :  2.4000000000e+03
 P-D objective error :  0.0000000000e+00
@@ -1663,7 +1662,7 @@ ok
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.01s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1681,7 +1680,7 @@ Solver message: Optimal
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-37lp2ovp has 5 rows; 2 cols; 6 nonzeros
+LP linopy-problem-c57g_8wd has 5 rows; 2 cols; 6 nonzeros
 Coefficient ranges:
   Matrix  [1e+00, 1e+00]
   Cost    [1e+01, 7e+01]
@@ -1694,7 +1693,7 @@ Presolve reductions: rows 0(-5); columns 0(-2); nonzeros 0(-6) - Reduced to empt
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-37lp2ovp
+Model name          : linopy-problem-c57g_8wd
 Model status        : Optimal
 Objective value     :  2.4000000000e+03
 P-D objective error :  0.0000000000e+00
@@ -2042,7 +2041,7 @@ Index(['gas', 'nuclear'], dtype='object', name='name')
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimisation">Optimisation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-pypsa-model">Explore the PyPSA model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-write-optimization-problem-manually-and-reproduce-the-pypsa-model">Let’s write optimization problem manually and reproduce the PyPSA model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-time-allows-we-can-also-write-optimization-problem-manually-and-reproduce-the-pypsa-model">(If time allows) We can also write optimization problem manually and reproduce the PyPSA model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-use-of-expressions">Making use of Expressions</a></li>
 </ul>
 </li>
