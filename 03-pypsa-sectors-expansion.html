@@ -485,8 +485,7 @@
 <h1>Expansion Planning &amp; Sector Coupling<a class="headerlink" href="#expansion-planning-sector-coupling" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>On the workshop JupyterHub, everything is already installed</strong> - just log in and run the cells below, nothing to set up.</p>
-<p>No hub access? You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/03-pypsa-sectors-expansion.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
+<p>**You can also run this notebook in your browser on <a class="reference external" href="https://colab.research.google.com/github/pypsalabs/workshop-202610/blob/main/berlin/03-pypsa-sectors-expansion.ipynb">Google Colab</a> (a Google account is required). On Colab, first run this in a cell at the top:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa
 </pre></div>
 </div>
@@ -1309,7 +1308,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/11 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 332.87it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 237.55it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1318,10 +1317,10 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 686.79it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 474.63it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.06s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.08s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1330,7 +1329,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37237 duals
 Objective: 4.75e+10
 Solver: highs
-Runtime: 1.64s
+Runtime: 2.66s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -2022,7 +2021,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 345.27it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 246.85it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2031,10 +2030,10 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 667.00it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 493.72it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.05s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.07s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -2043,7 +2042,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37238 duals
 Objective: 7.53e+10
 Solver: highs
-Runtime: 1.70s
+Runtime: 2.70s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -2341,7 +2340,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 323.52it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 228.52it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2350,10 +2349,10 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 681.97it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 447.92it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.05s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.08s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -2362,7 +2361,7 @@ Termination condition: optimal
 Solution: 21909 primals, 48190 duals
 Objective: 1.67e+11
 Solver: highs
-Runtime: 2.14s
+Runtime: 3.68s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
