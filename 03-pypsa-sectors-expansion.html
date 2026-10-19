@@ -814,8 +814,7 @@ a(r, n) = \frac{r}{1-(1+r)^{-n}}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup: https://cloud.pypsalabs.org/s/FSJ3qwQjqCxcWXQ/download/time-series-sample.csv</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/pypsalabs/workshop-202610/main/berlin/data/time-series-sample.csv"</span>
-
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/martavp/pypsa-workshop-202610/main/pypsa-workshop-202610/data/time-series-sample.csv"</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1308,7 +1307,7 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/11 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 237.55it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 11/11 [00:00&lt;00:00, 214.90it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1317,10 +1316,10 @@ Index(['hydrogen storage'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 474.63it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 410.99it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.08s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -1329,7 +1328,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37237 duals
 Objective: 4.75e+10
 Solver: highs
-Runtime: 2.66s
+Runtime: 3.43s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -2021,7 +2020,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 246.85it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 198.16it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2030,10 +2029,10 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 493.72it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 405.99it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.07s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -2042,7 +2041,7 @@ Termination condition: optimal
 Solution: 17527 primals, 37238 duals
 Objective: 7.53e+10
 Solver: highs
-Runtime: 2.70s
+Runtime: 3.60s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
@@ -2162,7 +2161,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup: https://tubcloud.tu-berlin.de/s/mSkHERH8fJCKNXx/download/heat-load-example.csv</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/pypsalabs/workshop-202610/main/berlin/data/heat-load-example.csv"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/martavp/pypsa-workshop-202610/main/pypsa-workshop-202610/data/heat-load-example.csv"</span>
 
 <span class="n">heat_load</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 </pre></div>
@@ -2228,7 +2227,7 @@ COP(\Delta T) = 6.81 - 0.121 \Delta T + 0.00063 \Delta T^2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup: https://tubcloud.tu-berlin.de/s/S4jRAQMP5Te96jW/download/ninja_weather_country_DE_merra-2_population_weighted.csv</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/pypsalabs/workshop-202610/main/berlin/data/ninja_weather_country_DE_merra-2_population_weighted.csv"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/martavp/pypsa-workshop-202610/main/pypsa-workshop-202610/data/ninja_weather_country_DE_merra-2_population_weighted.csv"</span>
 
 <span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"2015"</span><span class="p">,</span> <span class="s2">"temperature"</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">h"</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
@@ -2340,7 +2339,7 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.:   0%|          | 0/12 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 228.52it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing constraints.: 100%|██████████| 12/12 [00:00&lt;00:00, 192.05it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2349,10 +2348,10 @@ Index(['0', '1'], dtype='object', name='name')
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.:   0%|          | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 447.92it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing continuous variables.: 100%|██████████| 7/7 [00:00&lt;00:00, 399.27it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.08s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.09s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
@@ -2361,7 +2360,7 @@ Termination condition: optimal
 Solution: 21909 primals, 48190 duals
 Objective: 1.67e+11
 Solver: highs
-Runtime: 3.68s
+Runtime: 4.46s
 MIP gap: inf
 Dual bound: 0.00e+00
 Solver model: available
