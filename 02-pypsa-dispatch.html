@@ -227,8 +227,8 @@
 <li class="toctree-l1"><a class="reference internal" href="01-pypsa-intro.html">Introduction: PyPSA &amp; linopy</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dispatch problems, Maps &amp; Statistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-pypsa-sectors-expansion.html">Expansion Planning &amp; Sector Coupling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="annex-python.html">Annex: Intro to the basics of <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="annex-pandas.html">Annex: Tabular data analysis with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-python.html">Annex: <code class="docutils literal notranslate"><span class="pre">Python</span></code> basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-pandas.html">Annex: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> basics</a></li>
 </ul>
 
     </div>
@@ -537,13 +537,13 @@
 <section id="a-more-general-form-of-an-electricity-dispatch-problem">
 <h2>A more general form of an electricity dispatch problem<a class="headerlink" href="#a-more-general-form-of-an-electricity-dispatch-problem" title="Link to this heading">#</a></h2>
 <p>For an <em>hourly</em> electricity market dispatch simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45f08ab4-0b20-4f49-82ba-0a5eefca37c8">
-<span class="eqno">(3)<a class="headerlink" href="#equation-45f08ab4-0b20-4f49-82ba-0a5eefca37c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-41af628f-cb3b-4d8e-9428-59995a8d6573">
+<span class="eqno">(3)<a class="headerlink" href="#equation-41af628f-cb3b-4d8e-9428-59995a8d6573" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_{i,s,t} o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d59decd-6975-4a25-a9ed-9cca1581bd27">
-<span class="eqno">(4)<a class="headerlink" href="#equation-0d59decd-6975-4a25-a9ed-9cca1581bd27" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d7a51769-5d13-45d0-a479-fadb6a86e634">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d7a51769-5d13-45d0-a479-fadb6a86e634" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{nodal energy balance : bus} \\
