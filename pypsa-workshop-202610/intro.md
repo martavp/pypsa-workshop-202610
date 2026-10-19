@@ -5,11 +5,15 @@ This repository contains PyPSA(-Eur) materials for a workshop organized for the 
 
 The workshop is hosted by the **DTU Department of Wind and Energy Systems** — Marta Victoria, Aleksander Grochowicz, Parisa Rahdan — with support from the **DFF Sapere Aude project EXTREMES** (2067-00009B) and the **Novo Nordisk Fundation CO2 Research Center (CORC)** (CORC005). 
 
+The materials for this workshop are based on a [previous edition](https://resilient-project.github.io/pypsa-workshop-202506/intro.html) co-hosted with Fabian Neumann and Iegor Riepin at [PyPSA-labs](https://pypsalabs.org/). 
+
 More about our work:
 
-- EXTREMES project: [Designing a sector-coupled European energy system robust to 60 years of historical weather data](https://www.nature.com/articles/s41467-024-54853-3)
+- EXTREMES project: [Designing a sector-coupled European energy system robust to 60 years of historical weather data](https://www.nature.com/articles/s41467-024-54853-3) 
 
-- CORC project: 
+[Resilience metrics to guide back-up investments in the power system during extreme weather](https://www.nature.com/articles/s41893-026-01897-6)
+
+- CORC project: [Near-optimal solutions for carbon capture, conversion, storage, and removal strategies](https://iopscience.iop.org/article/10.1088/1748-9326/ae7a91) 
 
 ## Google Colab
 
