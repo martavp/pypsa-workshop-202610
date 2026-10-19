@@ -7,7 +7,7 @@ chapters:
 - file: slides
   title: Slide deck PyPSA(-Eur)
 - file: 01-pypsa-intro
-- file: 02-pypsa-more-features
+- file: 02-pypsa-dispatch
 - file: 03-pypsa-sectors-expansion
 - file: annex-python
 - file: annex-pandas
