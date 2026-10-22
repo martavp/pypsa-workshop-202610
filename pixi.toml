@@ -1,0 +1,38 @@
+[workspace]
+name = "workshop-202610"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.13,<3.14"
+numpy = "*"
+scipy = "*"
+pandas = ">=2,<3"
+geopandas = ">=1"
+xarray = "*"
+netcdf4 = "*"
+pyarrow = "*"
+numba = "*"
+ipython = "*"
+jupyterlab = "*"
+lxml = "*"
+openpyxl = "*"
+shapely = ">2"
+cartopy = ">=0.22"
+matplotlib = ">=3.9"
+plotly = "<6"
+pre-commit = "*"
+pip = ">=26.2.1,<27"
+
+[pypi-dependencies]
+highspy = ">=1.5.3"
+pypsa = { version = ">=1.1", extras = ["excel"] }
+jupyter-book = ">=2"
+
+# Extra packages only the single-user Docker image needs (not local Option B).
+[feature.image.pypi-dependencies]
+jupyterhub = "*"   # provides jupyterhub-singleuser; pypi build avoids the node/proxy conda dep
+
+[environments]
+default = { solve-group = "default" }
+image = { features = ["image"], solve-group = "default" }

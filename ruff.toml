@@ -1,0 +1,4 @@
+[lint.per-file-ignores]
+"docker/jupyter_server_config.py" = ["F821"]  # `c` is injected by Jupyter
+"berlin/annex-pandas.ipynb" = ["C408"]
+"berlin/annex-python.ipynb" = ["PLR0133", "SIM222", "SIM223"]
