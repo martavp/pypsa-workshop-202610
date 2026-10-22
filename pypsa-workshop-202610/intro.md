@@ -10,6 +10,7 @@ The materials for this workshop are based on a [previous edition](https://resili
 More about our work:
 
 - EXTREMES project: 
+
 [Designing a sector-coupled European energy system robust to 60 years of historical weather data](https://www.nature.com/articles/s41467-024-54853-3) 
 
 [Resilience metrics to guide back-up investments in the power system during extreme weather](https://www.nature.com/articles/s41893-026-01897-6)
