@@ -536,13 +536,13 @@
 <section id="a-more-general-form-of-an-electricity-dispatch-problem">
 <h2>A more general form of an electricity dispatch problem<a class="headerlink" href="#a-more-general-form-of-an-electricity-dispatch-problem" title="Link to this heading">#</a></h2>
 <p>For an <em>hourly</em> electricity market dispatch simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba8450d9-aac5-4c27-a35a-492352eff253">
-<span class="eqno">(3)<a class="headerlink" href="#equation-ba8450d9-aac5-4c27-a35a-492352eff253" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ac3db3e-b2b6-447b-94fb-bac201785f32">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5ac3db3e-b2b6-447b-94fb-bac201785f32" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_{i,s,t} o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03a57aa5-9c83-4437-ac7e-d8ca7918637d">
-<span class="eqno">(4)<a class="headerlink" href="#equation-03a57aa5-9c83-4437-ac7e-d8ca7918637d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a3981cdb-3d2b-400a-9e27-9cc9e86352ad">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a3981cdb-3d2b-400a-9e27-9cc9e86352ad" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{nodal energy balance : bus} \\
@@ -790,7 +790,7 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
     <span class="s2">"Carrier"</span><span class="p">,</span>
     <span class="p">[</span><span class="s2">"coal"</span><span class="p">,</span> <span class="s2">"gas"</span><span class="p">,</span> <span class="s2">"oil"</span><span class="p">,</span> <span class="s2">"hydro"</span><span class="p">,</span> <span class="s2">"wind"</span><span class="p">],</span>
-    <span class="n">co2_emissions</span><span class="o">=</span><span class="n">emissions</span><span class="p">,</span>
+    <span class="n">co2_emissions</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">emissions</span><span class="p">),</span>
     <span class="n">nice_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"Coal"</span><span class="p">,</span> <span class="s2">"Gas"</span><span class="p">,</span> <span class="s2">"Oil"</span><span class="p">,</span> <span class="s2">"Hydro"</span><span class="p">,</span> <span class="s2">"Onshore Wind"</span><span class="p">],</span>
     <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"dimgrey"</span><span class="p">,</span> <span class="s2">"tomato"</span><span class="p">,</span> <span class="s2">"olive"</span><span class="p">,</span> <span class="s2">"seagreen"</span><span class="p">,</span> <span class="s2">"royalblue"</span><span class="p">],</span>
 <span class="p">)</span>
@@ -801,26 +801,17 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">"Carrier"</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="p">[</span><span class="s2">"coal"</span><span class="p">,</span> <span class="s2">"gas"</span><span class="p">,</span> <span class="s2">"oil"</span><span class="p">,</span> <span class="s2">"hydro"</span><span class="p">,</span> <span class="s2">"wind"</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">co2_emissions</span><span class="o">=</span><span class="n">emissions</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">co2_emissions</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">emissions</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">nice_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"Coal"</span><span class="p">,</span> <span class="s2">"Gas"</span><span class="p">,</span> <span class="s2">"Oil"</span><span class="p">,</span> <span class="s2">"Hydro"</span><span class="p">,</span> <span class="s2">"Onshore Wind"</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"dimgrey"</span><span class="p">,</span> <span class="s2">"tomato"</span><span class="p">,</span> <span class="s2">"olive"</span><span class="p">,</span> <span class="s2">"seagreen"</span><span class="p">,</span> <span class="s2">"royalblue"</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/pypsa/network/transform.py:319,</span> in <span class="ni">NetworkTransformMixin.add</span><span class="nt">(self, class_name, name, suffix, overwrite, return_names, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>         <span class="s2">"Dictionaries are not supported as dynamic attribute values. "</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="s2">"Please use pandas.Series or pandas.DataFrame instead."</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">319</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span> <span class="c1"># If index/ columns are passed (pd.DataFrame or pd.Series)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="c1"># - cast names index to string and add suffix</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="c1"># - check if passed index/ columns align</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="n">msg</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{}</span><span class="s2"> has an index which does not align with the passed </span><span class="si">{}</span><span class="s2">."</span>
-
-<span class="ne">TypeError</span>: Dictionaries are not supported as dynamic attribute values. Please use pandas.Series or pandas.DataFrame instead.
+<span class="ne">NameError</span>: name 'pd' is not defined
 </pre></div>
 </div>
 </div>

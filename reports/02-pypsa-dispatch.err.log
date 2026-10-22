@@ -21,7 +21,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 n.add(
     "Carrier",
     ["coal", "gas", "oil", "hydro", "wind"],
-    co2_emissions=emissions,
+    co2_emissions=pd.Series(emissions),
     nice_name=["Coal", "Gas", "Oil", "Hydro", "Onshore Wind"],
     color=["dimgrey", "tomato", "olive", "seagreen", "royalblue"],
 )
@@ -31,24 +31,15 @@ n.add("Carrier", "AC", nice_name="Electricity", color="crimson")
 
 
 [31m---------------------------------------------------------------------------[39m
-[31mTypeError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 1[39m
-[32m----> [39m[32m1[39m n.add(
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[10][39m[32m, line 4[39m
+[32m      1[39m n.add(
 [32m      2[39m     [33m"Carrier"[39m,
 [32m      3[39m     [[33m"coal"[39m, [33m"gas"[39m, [33m"oil"[39m, [33m"hydro"[39m, [33m"wind"[39m],
-[32m      4[39m     co2_emissions=emissions,
+[32m----> [39m[32m4[39m     co2_emissions=pd.Series(emissions),
+[32m      5[39m     nice_name=[[33m"Coal"[39m, [33m"Gas"[39m, [33m"Oil"[39m, [33m"Hydro"[39m, [33m"Onshore Wind"[39m],
+[32m      6[39m     color=[[33m"dimgrey"[39m, [33m"tomato"[39m, [33m"olive"[39m, [33m"seagreen"[39m, [33m"royalblue"[39m],
+[32m      7[39m )
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/pypsa/network/transform.py:319[39m, in [36mNetworkTransformMixin.add[39m[34m(self, class_name, name, suffix, overwrite, return_names, **kwargs)[39m
-[32m    314[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(v, [38;5;28mdict[39m):
-[32m    315[39m     msg = (
-[32m    316[39m         [33m"[39m[33mDictionaries are not supported as dynamic attribute values. [39m[33m"[39m
-[32m    317[39m         [33m"[39m[33mPlease use pandas.Series or pandas.DataFrame instead.[39m[33m"[39m
-[32m    318[39m     )
-[32m--> [39m[32m319[39m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(msg)
-[32m    321[39m [38;5;66;03m# If index/ columns are passed (pd.DataFrame or pd.Series)[39;00m
-[32m    322[39m [38;5;66;03m# - cast names index to string and add suffix[39;00m
-[32m    323[39m [38;5;66;03m# - check if passed index/ columns align[39;00m
-[32m    324[39m msg = [33m"[39m[38;5;132;01m{}[39;00m[33m has an index which does not align with the passed [39m[38;5;132;01m{}[39;00m[33m.[39m[33m"[39m
-
-[31mTypeError[39m: Dictionaries are not supported as dynamic attribute values. Please use pandas.Series or pandas.DataFrame instead.
+[31mNameError[39m: name 'pd' is not defined
 
